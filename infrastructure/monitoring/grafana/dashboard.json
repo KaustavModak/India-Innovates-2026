@@ -1,0 +1,49 @@
+{
+  "dashboard": {
+    "title": "Election Audit System",
+    "panels": [
+      {
+        "title": "API Request Rate",
+        "type": "graph",
+        "datasource": "Prometheus",
+        "targets": [{ "expr": "rate(http_requests_total{job='election-audit-backend'}[5m])" }],
+        "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 }
+      },
+      {
+        "title": "Verification Requests",
+        "type": "stat",
+        "datasource": "Prometheus",
+        "targets": [{ "expr": "sum(increase(http_requests_total{path=~'/api/v1/verify/.*'}[24h]))" }],
+        "gridPos": { "h": 8, "w": 6, "x": 12, "y": 0 }
+      },
+      {
+        "title": "Hash Generations",
+        "type": "stat",
+        "datasource": "Prometheus",
+        "targets": [{ "expr": "sum(increase(http_requests_total{path='/api/v1/hash/generate', method='POST'}[24h]))" }],
+        "gridPos": { "h": 8, "w": 6, "x": 18, "y": 0 }
+      },
+      {
+        "title": "Response Time (p95)",
+        "type": "graph",
+        "datasource": "Prometheus",
+        "targets": [{ "expr": "histogram_quantile(0.95, rate(http_request_duration_seconds_bucket{job='election-audit-backend'}[5m]))" }],
+        "gridPos": { "h": 8, "w": 12, "x": 0, "y": 8 }
+      },
+      {
+        "title": "Database Connections",
+        "type": "gauge",
+        "datasource": "Prometheus",
+        "targets": [{ "expr": "pg_stat_activity_count{datname='election_audit'}" }],
+        "gridPos": { "h": 8, "w": 6, "x": 12, "y": 8 }
+      },
+      {
+        "title": "Redis Memory Usage",
+        "type": "gauge",
+        "datasource": "Prometheus",
+        "targets": [{ "expr": "redis_memory_used_bytes / redis_memory_max_bytes * 100" }],
+        "gridPos": { "h": 8, "w": 6, "x": 18, "y": 8 }
+      }
+    ]
+  }
+}

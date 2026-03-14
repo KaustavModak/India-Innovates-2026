@@ -1,0 +1,81 @@
+﻿python : C:\Users\KIIT0001
+\AppData\Roaming\Python\Py
+thon313\site-packages\pyte
+st_asyncio\plugin.py:208: 
+PytestDeprecationWarning: 
+The configuration option "
+asyncio_default_fixture_lo
+op_scope" is unset.
+At line:1 char:1
++ python -m pytest app/tes
+ts/test_services.py -v 
+--tb=short 2>&1 | Out- ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~
+    + CategoryInfo        
+      : NotSpecified: (C  
+  :\Users\KIIT00...cope   
+ " is unset.:String) [    
+], RemoteException
+    + FullyQualifiedError 
+   Id : NativeCommandErr  
+  or
+ 
+The event loop scope for 
+asynchronous fixtures 
+will default to the 
+fixture caching scope. 
+Future versions of 
+pytest-asyncio will 
+default the loop scope 
+for asynchronous fixtures 
+to function scope. Set 
+the default fixture loop 
+scope explicitly in order 
+to avoid unexpected 
+behavior in the future. 
+Valid fixture loop scopes 
+are: "function", "class", 
+"module", "package", 
+"session"
+
+  warnings.warn(PytestDepr
+ecationWarning(_DEFAULT_FI
+XTURE_LOOP_SCOPE_UNSET))
+============================= test session starts =============================
+platform win32 -- Python 3.13.3, pytest-8.3.0, pluggy-1.6.0 -- C:\Program Files\Python313\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\KIIT0001\Desktop\insi\backend
+plugins: anyio-4.9.0, langsmith-0.7.3, asyncio-0.24.0
+asyncio: mode=Mode.STRICT, default_loop_scope=None
+collecting ... collected 15 items
+
+app/tests/test_services.py::TestHashService::test_hash_known_string PASSED [  6%]
+app/tests/test_services.py::TestHashService::test_hash_empty_bytes PASSED [ 13%]
+app/tests/test_services.py::TestHashService::test_hash_file PASSED       [ 20%]
+app/tests/test_services.py::TestHashService::test_hash_file_not_found PASSED [ 26%]
+app/tests/test_services.py::TestHashService::test_verify_bytes_valid PASSED [ 33%]
+app/tests/test_services.py::TestHashService::test_verify_bytes_tampered PASSED [ 40%]
+app/tests/test_services.py::TestHashService::test_verify_file PASSED     [ 46%]
+app/tests/test_services.py::TestHashService::test_deterministic_hashing PASSED [ 53%]
+app/tests/test_services.py::TestHashService::test_different_inputs_different_hashes PASSED [ 60%]
+app/tests/test_services.py::TestBlockchainService::test_store_and_query_hash PASSED [ 66%]
+app/tests/test_services.py::TestBlockchainService::test_query_nonexistent_hash PASSED [ 73%]
+app/tests/test_services.py::TestBlockchainService::test_verify_hash PASSED [ 80%]
+app/tests/test_services.py::TestPKIService::test_generate_key_pair PASSED [ 86%]
+app/tests/test_services.py::TestPKIService::test_sign_and_verify PASSED  [ 93%]
+app/tests/test_services.py::TestPKIService::test_verify_tampered_data PASSED [100%]
+
+============================== warnings summary ===============================
+app/tests/test_services.py::TestBlockchainService::test_store_and_query_hash
+  C:\Users\KIIT0001\AppData\Roaming\Python\Python313\site-packages\pydantic\_internal\_config.py:295: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.10/migration/
+    warnings.warn(DEPRECATION_MESSAGE, DeprecationWarning)
+
+app/tests/test_services.py::TestBlockchainService::test_store_and_query_hash
+app/tests/test_services.py::TestBlockchainService::test_verify_hash
+  C:\Users\KIIT0001\Desktop\insi\backend\app\services\blockchain.py:162: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    now = datetime.utcnow()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================= 15 passed, 3 warnings in 10.04s =======================

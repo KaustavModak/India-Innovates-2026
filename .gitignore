@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Build
+.next/
+out/
+dist/
+build/
+
+# Uploads
+uploads/
+
+# Blockchain crypto materials (generated - do not commit)
+blockchain/network/crypto-config/
+blockchain/network/channel-artifacts/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+*.log
